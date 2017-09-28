@@ -1,2 +1,1 @@
-const release = require('./')
-release()
+require('./')()
