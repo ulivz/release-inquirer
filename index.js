@@ -202,7 +202,7 @@ function release(opts) {
             spinner.succeed('Released to Github successfully')
             spinner.info('Release to NPM ....')
             exec('git push')
-            exec(`npm publish ${$RELEASE_TAG}`)
+            exec(`npm publish ${$VERSION} ${$RELEASE_TAG}`)
           } else {
             spinner.fail('Failed to released to Github, Please see above error message.')
           }
