@@ -206,13 +206,14 @@ function release(opts) {
             // if ($RELEASE_TAG) {
             //   exec(`npm publish --tag ${$RELEASE_TAG}`)
             // } else {
-              exec('npm publish')
+            exec('npm publish')
             // }
           } else {
             spinner.fail('Failed to released to Github, Please see above error message.')
           }
         })
       })
+      success('Release finished')
   })
 
   Event.on('pass_check', function () {
