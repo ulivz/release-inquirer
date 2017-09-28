@@ -179,8 +179,8 @@ function release(opts) {
         $RELEASE_TAG = answers.tag
         const spinner = ora(`Start to release "${pkg.name} ${$VERSION}"`).start()
 
-        spinner.info('Update version in package.json ...')
-        exec(`npm version ${$VERSION}`)
+        // spinner.info('Update version in package.json ...')
+        // exec(`npm version ${$VERSION}`)
 
         // Commit
         spinner.info('Create a release commit ...')
