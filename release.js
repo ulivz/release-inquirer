@@ -1,0 +1,2 @@
+const release = require('./')
+release()
