@@ -1,5 +1,5 @@
 /*!
- * V-Codemirror v1.0.0
+ * release-inquirer
  * (c) 2016-2017 ulivz <Luke Chen>
  * Released under the MIT License.
  */
@@ -213,7 +213,7 @@ function release(opts) {
           }
         })
       })
-      success('Release finished')
+    success('Release finished')
   })
 
   Event.on('pass_check', function () {
