@@ -58,7 +58,8 @@ function exit0() {
  */
 function newVersion(oldVersion) {
 
-  if (!/^\d\.\d\.\d$/.test(oldVersion)) {
+  console.log(oldVersion)
+  if (!/^\d{1,2}\.\d{1,2}\.\d{1,4}$/.test(oldVersion)) {
     throw new Error('Invalid version')
   }
 
