@@ -1,6 +1,6 @@
 {
   "name": "release-inquirer",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "A release helper out of the box",
   "main": "index.js",
   "dependencies": {

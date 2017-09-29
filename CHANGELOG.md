@@ -1,3 +1,14 @@
+<a name="0.0.11"></a>
+## [0.0.11](https://github.com/ulivz/release-inquirer/compare/v0.0.10...v0.0.11) (2017-09-29)
+
+
+### Features
+
+* **$cli:** add cli ([fedf903](https://github.com/ulivz/release-inquirer/commit/fedf903))
+* **$version:** add the version's length ([a80decc](https://github.com/ulivz/release-inquirer/commit/a80decc))
+
+
+
 <a name="0.0.10"></a>
 ## [0.0.10](https://github.com/ulivz/release-inquirer/compare/v0.0.9...v0.0.10) (2017-09-28)
 
