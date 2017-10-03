@@ -1,3 +1,13 @@
+<a name="0.0.12"></a>
+## [0.0.12](https://github.com/ulivz/release-inquirer/compare/v0.0.11...v0.0.12) (2017-10-03)
+
+
+### Features
+
+* **$changelog:** Update changelog cli path ([1b40339](https://github.com/ulivz/release-inquirer/commit/1b40339))
+
+
+
 <a name="0.0.11"></a>
 ## [0.0.11](https://github.com/ulivz/release-inquirer/compare/v0.0.10...v0.0.11) (2017-09-29)
 
