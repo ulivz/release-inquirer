@@ -191,7 +191,7 @@ function release(opts) {
 
         // Changelog
         spinner.info('Update CHANGLOG ...')
-        exec('node_modules/.bin/conventional-changelog -p angular -i CHANGELOG.md -s')
+        exec(`${path.join(__dirname, 'node_modules/.bin/conventional-changelog')} -p angular -i CHANGELOG.md -s`)
         exec('git add .')
         exec(`git commit -m "chore: update CHANGLOG ${$VERSION}"`)
 
