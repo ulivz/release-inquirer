@@ -58,7 +58,6 @@ function exit0() {
  */
 function newVersion(oldVersion) {
 
-  console.log(oldVersion)
   if (!/^\d{1,2}\.\d{1,2}\.\d{1,4}$/.test(oldVersion)) {
     throw new Error('Invalid version')
   }
@@ -92,7 +91,7 @@ function newVersion(oldVersion) {
 function parallelExec(tasklist) {
   return Promise.all(tasklist.map(task => {
     return new Promise(resolve => {
-      exec(task.command, (code, stdout, stderr) => {
+      exec(task.command, task.options, (code, stdout, stderr) => {
         if (code === 0 && task.check(stdout)) {
           resolve()
         } else {
@@ -147,11 +146,13 @@ function release(opts) {
   parallelExec([
     {
       command: 'git status',
+      options: { silent: true },
       check: stdout => stdout.toString().indexOf('fatal') === -1,
       errorlog: 'Cannot find a git project!'
     },
     {
       command: 'git remote -v',
+      options: { silent: true },
       check: stdout => stdout.toString().trim().length > 0,
       errorlog: 'No remote repository!'
     }
@@ -163,6 +164,7 @@ function release(opts) {
   let $VERSION, $RELEASE_TAG
 
   Event.on('start_release', function () {
+    console.log()
     return Prompt([PROMPTS.confirmVersion(pkg.version)])
       .then(answers => {
         if (answers.isReady) {
