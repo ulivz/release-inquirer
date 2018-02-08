@@ -87,7 +87,6 @@ function newVersion(oldVersion) {
   }
 }
 
-
 function parallelExec(tasklist) {
   return Promise.all(tasklist.map(task => {
     return new Promise(resolve => {
@@ -115,7 +114,7 @@ function release(opts) {
     beforeRelease: null,
   }, opts)
 
-  const NEXT_VERSION = newVersion(pkg.version).LIST
+  const NEXT_VERSION = newVersion(pkg.version).LIST.concat([pkg.version])
 
   const PROMPTS = {
     confirmVersion(version) {
@@ -222,6 +221,7 @@ function release(opts) {
   Event.on('pass_check', function () {
     if (opts.beforeRelease) {
       Event.emit('before_release')
+
       if (typeof opts.beforeRelease === 'function') {
 
         opts.beforeRelease()
@@ -233,10 +233,11 @@ function release(opts) {
         })
 
       } else if (typeof opts.beforeRelease === 'string') {
+        info(`Start ${opts.beforeRelease}`)
         exec(opts.beforeRelease, (code, stdout, stderr) => {
           if (code === 0) {
+            info(`Finish ${opts.beforeRelease}`)
             Event.emit('start_release')
-            console.log(stdout)
           } else {
             console.log(stderr)
             console.log()
